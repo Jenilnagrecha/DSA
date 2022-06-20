@@ -6,9 +6,15 @@
 #define ll long long
 #define fr(i, n) for (int i = 0; i < n; i++)
 using namespace std;
-bool subsetsum(vector<int> ar,int sum, int n)
+int subsetsum(vector<int> ar, int n)
 {
-       vector<vector<int>> t(n+1,vector<int>(sum+1));
+    int sum =0;
+    for (int i = 0; i < n; i++)
+    {
+      sum+=ar[i];
+    }
+    
+       vector<vector<bool>> t(n+1,vector<bool>(sum+1));
       for (int i = 0; i < n+1; i++)
       {
        t[i][0] = true;
@@ -35,7 +41,19 @@ bool subsetsum(vector<int> ar,int sum, int n)
         }
         
     }
- return t[n][sum];
+    int mn =INT_MAX;
+    for (int i = 0; i < sum/2+1; i++)
+    {
+        if (t[n][i])
+        {
+            mn=min(mn,sum-2*i);
+        }
+        
+      
+    }
+    
+
+ return mn;
     
 }
 int main()
@@ -43,15 +61,11 @@ int main()
 ios_base::sync_with_stdio(false); cin.tie(NULL);
 int n;
 cin>>n;
-int sum;
-cin>>sum;
-vector<int> ar(n);
-
+vector<int> v(n);
 for (int i = 0; i < n; i++)
 {
-   cin>>ar[i];
+   cin>>v[i];
 }
-
-cout<< subsetsum(ar,sum,n);
+cout<<subsetsum(v,n);
     return 0;
 }
