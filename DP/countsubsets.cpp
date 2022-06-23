@@ -35,12 +35,7 @@ int subsetsum(vector<int> ar,int sum, int n)
         }
         
     }
- return t[n][sum];
-  
-
-
-   
-    
+ return t[n][sum];  
 }
 int main()
 {
