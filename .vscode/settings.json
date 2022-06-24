@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "xiosbase": "cpp"
-    }
+        "xiosbase": "cpp",
+        "printssbuseq": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

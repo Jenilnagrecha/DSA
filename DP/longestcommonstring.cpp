@@ -9,7 +9,6 @@ using namespace std;
 int ls(string s1,string s2, int m,int n)
 {
     int t[m+1][n+1];
-    vector<char> v;
     for (int i = 0; i < m+1; i++)
     {
        for (int j = 0; j < n+1; j++)
@@ -25,13 +24,14 @@ int ls(string s1,string s2, int m,int n)
           }
           else
           {
-            t[i][j] =max(t[i][j-1],t[i-1][j]);
+            t[i][j] =0;
           }
           
        }
        
     }
-    return t[m][n];
+    sort(t,t+((m+1)*(n+1)));
+    return t[0][0];
 }
 int main()
 {
